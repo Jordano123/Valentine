@@ -43,16 +43,16 @@ body{
 
 /* side GIF styling */
 .side-gif{
-  /* width:60px;         /* adjust as needed */ 
-  /* height:70vh;        /* adjust as needed */ 
-  width: clamp(180px, 70vw, 320px);
-  object-fit:contain;  /* ensures entire GIF fits, no cropping */
-  border-radius:var(--card-radius);
-  opacity:0.9;
-  z-index:0;
-  pointer-events:none;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--card-radius);
+  opacity: 0.9;
+  pointer-events: none;
+  display: block;
+  margin: 0 auto;
 }
-
 /* typography */
 .title{ font-size:clamp(28px,6vw,44px); margin:0 0 8px; font-weight:700; color:#fff; }
 .lead{ font-size:clamp(16px,3.2vw,20px); margin:8px 0 18px; color:#fff; }
