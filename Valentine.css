@@ -43,8 +43,9 @@ body{
 
 /* side GIF styling */
 .side-gif{
-  width:60px;         /* adjust as needed */
-  height:70vh;        /* adjust as needed */
+  /* width:60px;         /* adjust as needed */ 
+  /* height:70vh;        /* adjust as needed */ 
+  width: clamp(180px, 70vw, 320px)
   object-fit:contain;  /* ensures entire GIF fits, no cropping */
   border-radius:var(--card-radius);
   opacity:0.9;
@@ -74,7 +75,8 @@ body{
 /* responsive */
 @media (max-width:980px){
   .content-wrap{ flex-direction:column; gap:20px; }
-  .side-gif{ width:86%; height:36vh; opacity:0.10; min-width:0; }
+  /* .side-gif{ width:86%; height:36vh; opacity:0.10; min-width:0; } */
+  .side-gif{ width 80%; max-width: 300px; margin: 0 auto;}
   .card-left{ max-width:92%; }
   .card{ padding:clamp(20px,5vw,36px); max-width:92%; }
 }
