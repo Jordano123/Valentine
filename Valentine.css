@@ -1,0 +1,117 @@
+:root{
+  --pink-1: #ff6b9f;
+  --pink-2: #ff4d6d;
+  --card-radius: 18px;
+  --text: #fff;
+}
+
+/* base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  background: linear-gradient(135deg,var(--pink-1),var(--pink-2));
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+/* hearts background container */
+.hearts-bg{ position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+
+/* page layout */
+.page{ min-height:100vh; display:flex; align-items:center; justify-content:center; padding:6vh 4vw; position:relative; z-index:1; }
+.content-wrap{ display:flex; align-items:center; justify-content:center; gap:4vw; width:100%; max-width:1200px; }
+
+/* card styles */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  border-radius:var(--card-radius);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+  backdrop-filter: blur(6px);
+  color:var(--text);
+  padding:clamp(28px,4.5vw,56px);
+  width:100%;
+  max-width:720px;
+  position:relative;
+  z-index:2;
+}   
+
+
+
+
+/* left card for intro */
+.card-left{ max-width:620px; text-align:left; }
+
+/* center card for proposition and response */
+.card-center{ text-align:center; }
+
+/* single center layout for response */
+.single-center .card{ max-width:760px; }
+
+/* side GIF placeholders */
+.side-gif{
+  width:60px;
+  /* max-width:520px;
+  min-width:220px; */
+  height:70vh;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  opacity:0.9;
+  border-radius:var(--card-radius);
+  z-index:0;
+  pointer-events:none;
+}
+
+/* GIF filenames you mentioned */
+.right-gif{ background-image: url('IMG_2957.gif'); }
+.left-gif{ background-image: url('IMG_2955.gif'); } /* replace if you want a different file */
+.ask-bg-gif{ background-image: url('IMG_2955.gif'); }
+
+/* typography */
+.title{ font-size:clamp(28px,6vw,44px); margin:0 0 8px; font-weight:700; color:#fff; }
+.lead{ font-size:clamp(16px,3.2vw,20px); margin:8px 0 18px; color:#fff; }
+.sub{ color:rgba(255,255,255,0.95); margin-bottom:18px; }
+.ask-title{ font-family:"Great Vibes",cursive; font-size:clamp(36px,10vw,64px); margin:0; color:#fff; line-height:0.95; text-shadow:0 6px 18px rgba(0,0,0,0.25); }
+.celebrate{ font-size:clamp(26px,6vw,40px); margin:0 0 8px; }
+
+/* choices and buttons */
+.choices{ position:relative; height:160px; display:flex; align-items:center; justify-content:center; gap:20px; margin-top:18px; }
+.btn{ display:inline-flex; align-items:center; justify-content:center; border:0; padding:12px 20px; border-radius:12px; cursor:pointer; font-weight:700; transition: transform 160ms ease, box-shadow 160ms ease; -webkit-tap-highlight-color:transparent; text-decoration:none; color:inherit; }
+.btn-primary{ background:#fff; color:var(--pink-2); box-shadow:0 8px 26px rgba(0,0,0,0.16); padding:12px 22px; border-radius:12px; }
+.btn-yes{ background: linear-gradient(90deg,#fff 0%, #ffe6ea 100%); color:var(--pink-2); padding:14px 26px; font-size:clamp(16px,4vw,20px); }
+.btn-no{ position:absolute; background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.18); padding:12px 16px; border-radius:12px; min-width:84px; min-height:48px; display:inline-flex; align-items:center; justify-content:center; touch-action:manipulation; }
+
+/* media wrap for final GIF */
+.media-wrap{ display:flex; align-items:center; justify-content:center; margin:18px 0; }
+.photo{ width:320px; height:320px; object-fit:cover; border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,0.28); border:6px solid rgba(255,255,255,0.06); }
+
+/* hearts element */
+.heart{ position:absolute; transform:rotate(-45deg); background:rgba(255,255,255,0.12); border-radius:4px 4px 0 0; animation: floatUp linear infinite; filter:blur(0.2px); }
+.heart:before,.heart:after{ content:""; position:absolute; border-radius:50%; background:inherit; }
+
+/* animation */
+@keyframes floatUp{
+  0%{ transform: translateY(110vh) scale(0.8) rotate(-45deg); opacity:0 }
+  10%{ opacity:0.6 }
+  50%{ opacity:0.9 }
+  100%{ transform: translateY(-30vh) scale(1) rotate(-45deg); opacity:0 }
+}
+
+/* responsive */
+@media (max-width:980px){
+  .content-wrap{ flex-direction:column; gap:20px; }
+  .side-gif{ width:86%; height:36vh; opacity:0.10; min-width:0; }
+  .card-left{ max-width:92%; }
+  .card{ padding:clamp(20px,5vw,36px); max-width:92%; }
+  .choices{ height:200px; flex-direction:column; gap:12px; justify-content:flex-start; padding-top:8px; }
+  .btn-no{ position:static; margin-top:8px; }
+  .photo{ width:220px; height:220px; }
+}
+@media (max-width:420px){
+  .hearts-bg .heart{ display:none; }
+  .ask-title{ font-size:clamp(28px,10vw,44px); }
+  .photo{ width:180px; height:180px; }
+}
